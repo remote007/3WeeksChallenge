@@ -1,0 +1,53 @@
+1290. Convert Binary Number in a Linked List to Integer
+
+class Solution {
+public:
+    int stringToDecimal(string s){
+        int powTwo = 1, ans =0;
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            if(s[i]=='1')
+                ans += powTwo ;
+            powTwo *= 2;
+        }
+        return ans;
+    }
+    int getDecimalValue(ListNode* head) {
+        // int ans =0;
+        char c;
+        string s;
+        while(head!=NULL){
+            c = head->val==1?'1':'0';
+            s += c;
+            head = head->next;
+        }
+        int ans =stringToDecimal(s);
+        return ans;
+    }
+};
+
+####################################### My Solution ###################################################
+
+public:
+    int stringToDecimal(string s){
+        int powTwo = 1, ans =0;
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            ans += (s[i]-'0')*powTwo ;
+            powTwo *= 2;
+        }
+        return ans;
+    }
+    int getDecimalValue(ListNode* head) {
+        // int ans =0;
+        char c;
+        string s;
+        while(head!=NULL){
+            c = head->val==1?'1':'0';
+            s += c;
+            head = head->next;
+        }
+        int ans =stringToDecimal(s);
+        return ans;
+    }
+};
