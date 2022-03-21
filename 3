@@ -1,0 +1,18 @@
+905. Sort Array By Parity
+
+Input: nums = [3,1,2,4]
+Output: [2,4,3,1]
+Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        vector<int> even ;
+        vector<int> odd ;
+        for(int i=0;i<nums.size();i++)
+            nums[i]%2==0?even.push_back(nums[i]):odd.push_back(nums[i]);
+        even.insert(even.end(),odd.begin(),odd.end());
+        return even;
+        
+    }
+};
