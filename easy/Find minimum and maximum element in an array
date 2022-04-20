@@ -1,0 +1,7 @@
+pair<long long, long long> getMinMax(long long a[], int n) {
+    // pair<long long,long long>p;
+    sort(a,a+n);
+    // p={a[0],a[n-1]};
+    return{a[0],a[n-1]};
+    
+}
