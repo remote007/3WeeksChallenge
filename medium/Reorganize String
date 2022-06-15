@@ -1,0 +1,35 @@
+https://leetcode.com/problems/reorganize-string/
+
+var reorganizeString = function(s) {
+    let i=0;
+    s = s.split('');
+    
+    //FIRST ITERATION ---> TO THE RIGHT
+    while (i<s.length) {
+        if (s[i] == s[i+1]) {
+            let p = i+1;
+            while (s[i] == s[i+1] && i+1 < s.length-1) {
+                i++;
+            }
+            [s[p],s[i+1]] = [s[i+1],s[p]];
+            i = p;
+        }
+        i++;
+    }
+
+    i=s.length-1;
+    //SECOND ITERATION ---> TO THE LEFT
+    while (i>0) {
+        if (s[i] == s[i-1]) {
+            let p = i-1;
+            while (s[i] == s[i-1] && i-1 > 0) {
+                i--;
+            }
+            [s[p],s[i-1]] = [s[i-1],s[p]];
+            i = p;
+        }
+        i--;
+    }
+    
+    return s[0] == s[1] ? "" : s.join('');
+};
